@@ -1,3 +1,0 @@
-<view class="container">
-  <text class="title">{{ title }}</text>
-</view>

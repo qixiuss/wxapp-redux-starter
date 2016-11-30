@@ -1,53 +1,56 @@
-// 获取全局应用程序实例对象
-const app = getApp()
+//index.js
+const { connect } = require('../../vendors/weapp-redux.js')
+const { asyncTap, addTodo, setVisibilityFilter, toggleTodo } = require('../../redux/reducers/todos.js')
 
-// 创建页面实例对象
-Page({
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    title: 'Index page',
-    userInfo: {}
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad () {
-    console.log(' ---------- onLoad ----------')
-    // console.dir(app.data)
-    app.getUserInfo()
-      .then(info => this.setData({ userInfo: info }))
-      .catch(console.info)
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady () {
-    console.log(' ---------- onReady ----------')
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow () {
-    console.log(' ---------- onShow ----------')
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide () {
-    console.log(' ---------- onHide ----------')
-  },
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload () {
-    console.log(' ---------- onUnload ----------')
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh () {
-    console.log(' ---------- onPullDownRefresh ----------')
-  }
+const pageConfig = {
+    data: {
+        todos: [],
+        filters: [{ key: 'SHOW_ALL', text: '全部' }, { key: 'SHOW_ACTIVE', text: '正在进行' }, { key: 'SHOW_COMPLETED', text: '已完成' }]
+    },
+    handleCheck: function(e) {
+        const id = parseInt(e.target.id)
+        this.toggleTodo(id);
+    },
+    applyFilter: function(e) {
+        this.setVisibilityFilter(e.target.id)
+    },
+    onLoad: function() {
+        console.log('on load')
+    },
+    onUnload: function() {
+        console.log('on unload')
+    }
+}
+
+const filterTodos = (todos, filter) => {
+    switch (filter) {
+        case 'SHOW_ALL':
+            return todos
+        case 'SHOW_COMPLETED':
+            return todos.filter(t => t.completed)
+        case 'SHOW_ACTIVE':
+            return todos.filter(t => !t.completed)
+        default:
+            throw new Error('Unknown filter: ' + filter)
+    }
+}
+
+const mapStateToData = state => ({
+    todos: filterTodos(state.todos, state.visibilityFilter),
+    visibilityFilter: state.visibilityFilter
 })
+
+const mapDispatchToPage = dispatch => ({
+    setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter)),
+    toggleTodo: id => dispatch(toggleTodo(id)),
+    addTodo: event => {
+        dispatch(addTodo(event.detail.value.todo));
+    },
+    asyncTap: event => {
+        console.log(1);
+        dispatch(asyncTap());
+    }
+})
+
+const nextPageConfig = connect(mapStateToData, mapDispatchToPage)(pageConfig)
+Page(nextPageConfig);

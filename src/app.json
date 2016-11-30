@@ -3,8 +3,7 @@
   // First is default to view
   // https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#pages
   "pages": [
-    "pages/index/index",
-    "pages/demo/demo"
+    "pages/index/index"
     // Dont remove this comment
   ],
   // Window configuration
@@ -43,12 +42,6 @@
         "pagePath": "pages/index/index",
         "iconPath": "images/icon_component.png",
         "selectedIconPath": "images/icon_component_HL.png"
-      },
-      {
-        "text": "DEMO",
-        "pagePath": "pages/demo/demo",
-        "iconPath": "images/icon_API.png",
-        "selectedIconPath": "images/icon_API_HL.png"
       }
     ]
   },
