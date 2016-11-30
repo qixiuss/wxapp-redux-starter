@@ -1,8 +1,11 @@
-const { Provider } = require('./vendors/weapp-redux.js');
-const store = require('./redux/store.js');
+import { Provider } from './vendors/weapp-redux.js';
+import { store } from './redux/store.js';
 
-App(Provider(store())({
+
+let appConfig = {
     onLaunch: function() {
         console.log("onLaunch")
     }
-}))
+};
+
+App(Provider(store())(appConfig))

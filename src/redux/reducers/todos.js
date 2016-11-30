@@ -1,11 +1,13 @@
 // action
 import Promise from '../../vendors/es-promise.js';
+import { createActions, handleActions } from '../../vendors/redux-actions';
 import { assign } from '../../libs/utils.js'
 
-let nextTodoId = 0
+let todoId = 0;
+
 const addTodo = (text) => ({
     type: 'ADD_TODO',
-    id: nextTodoId++,
+    id: todoId++,
     text
 })
 
@@ -28,11 +30,6 @@ const asyncTap = () => {
         })
     }
 }
-
-
-
-
-
 
 // reducer
 const todo = (state, action) => {
@@ -67,9 +64,12 @@ const todos = (state = [], action) => {
 }
 
 module.exports = {
+    // actions
     asyncTap: asyncTap,
     addTodo: addTodo,
     setVisibilityFilter: setVisibilityFilter,
     toggleTodo: toggleTodo,
+
+    // reducers
     todos: todos
 }

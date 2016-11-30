@@ -1,23 +1,24 @@
 import {
     createStore,
     compose,
-    applyMiddleware
+    applyMiddleware,
+    combineReducers
 } from '../vendors/redux.js';
 import thunkMiddleware from '../vendors/redux-thunk.js';
-// const devTools = require('./libs/remote-redux-devtools.js').default;
-const reducer = require('./reducer.js')
 
-function store() {
-    return createStore(reducer, applyMiddleware(
-        thunkMiddleware
-    ));
+// import reducers
+import { todos } from './reducers/todos.js';
+import { visibilityFilter } from './reducers/visibilityFilter.js';
+
+
+export const store = function() {
+    return createStore(
+        combineReducers({
+            todos,
+            visibilityFilter
+        }),
+        applyMiddleware(
+            thunkMiddleware
+        )
+    );
 }
-// function store() {
-//   return createStore(reducer, compose(devTools({
-//     hostname: 'localhost',
-//     port: 5678,
-//     secure: false
-//   })));
-// }
-
-module.exports = store;

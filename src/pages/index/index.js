@@ -1,19 +1,33 @@
 //index.js
-const { connect } = require('../../vendors/weapp-redux.js')
-const { asyncTap, addTodo, setVisibilityFilter, toggleTodo } = require('../../redux/reducers/todos.js')
+const {
+    connect
+} = require('../../vendors/weapp-redux.js')
+const {
+    asyncTap,
+    addTodo,
+    setVisibilityFilter,
+    toggleTodo
+} = require('../../redux/reducers/todos.js')
 
-const pageConfig = {
+let pageConfig = {
     data: {
         todos: [],
-        filters: [{ key: 'SHOW_ALL', text: '全部' }, { key: 'SHOW_ACTIVE', text: '正在进行' }, { key: 'SHOW_COMPLETED', text: '已完成' }]
+        filters: [
+            { key: 'SHOW_ALL', text: '全部' },
+            { key: 'SHOW_ACTIVE', text: '正在进行' },
+            { key: 'SHOW_COMPLETED', text: '已完成' }
+        ]
     },
     handleCheck: function(e) {
         const id = parseInt(e.target.id)
+
         this.toggleTodo(id);
     },
+
     applyFilter: function(e) {
         this.setVisibilityFilter(e.target.id)
     },
+
     onLoad: function() {
         console.log('on load')
     },
@@ -22,7 +36,7 @@ const pageConfig = {
     }
 }
 
-const filterTodos = (todos, filter) => {
+let filterTodos = (todos, filter) => {
     switch (filter) {
         case 'SHOW_ALL':
             return todos
@@ -35,12 +49,12 @@ const filterTodos = (todos, filter) => {
     }
 }
 
-const mapStateToData = state => ({
+let mapStateToData = state => ({
     todos: filterTodos(state.todos, state.visibilityFilter),
     visibilityFilter: state.visibilityFilter
 })
 
-const mapDispatchToPage = dispatch => ({
+let mapDispatchToPage = dispatch => ({
     setVisibilityFilter: filter => dispatch(setVisibilityFilter(filter)),
     toggleTodo: id => dispatch(toggleTodo(id)),
     addTodo: event => {
@@ -52,5 +66,6 @@ const mapDispatchToPage = dispatch => ({
     }
 })
 
-const nextPageConfig = connect(mapStateToData, mapDispatchToPage)(pageConfig)
-Page(nextPageConfig);
+
+pageConfig = connect(mapStateToData, mapDispatchToPage)(pageConfig)
+Page(pageConfig);
