@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "A boilerplate application for wechat weapp runtime",
   "scripts": {
-    "lint": "gulp lint",
     "dev": "gulp watch",
     "generate": "gulp generate",
     "build": "cross-env NODE_ENV=production gulp build"
