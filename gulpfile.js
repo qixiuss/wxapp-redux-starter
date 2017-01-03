@@ -23,49 +23,11 @@ function handleErrors(errorObject, callback) {
     }
 }
 
-// utils functions
-function generateFile(options) {
-    const files = generatePage({
-        root: path.resolve(__dirname, './src/pages/'),
-        name: options.pageName,
-        less: options.styleType === 'less',
-        scss: options.styleType === 'scss',
-        css: options.styleType === 'css',
-        json: options.needConfig
-    })
-    files.forEach && files.forEach(file => plugins.util.log('[generate]', file))
-    return files
-}
-
-function generateJson(options) {
-    const filename = path.resolve(__dirname, 'src/app.json')
-    const now = fs.readFileSync(filename, 'utf8')
-    const temp = now.split('\n    // Dont remove this comment')
-    if (temp.length !== 2) {
-        return plugins.util.log('[generate]', 'Append json failed')
-    }
-    const result = `${temp[0].trim()},
-    "pages/${options.pageName}/${options.pageName}"
-    // Dont remove this comment
-  ${temp[1].trim()}
-`
-    fs.writeFileSync(filename, result)
-}
-
 /**
  * Clean distribution directory
  */
 gulp.task('clean', del.bind(null, ['dist/*']))
 
-/**
- * Lint source code
- */
-gulp.task('lint', () => {
-    // return gulp.src(['*.{js,json}', '**/*.{js,json}', '!node_modules/**', '!dist/**'])
-    //   .pipe(plugins.eslint())
-    //   .pipe(plugins.eslint.format('node_modules/eslint-friendly-formatter'))
-    //   .pipe(plugins.eslint.failAfterError())
-})
 
 /**
  * Compile js source to distribution directory
@@ -91,8 +53,6 @@ gulp.task('compile:xml', () => {
         // .pipe(plugins.sourcemaps.init())
         .pipe(plugins.if(isProduction, plugins.htmlmin({
             collapseWhitespace: true,
-            // collapseBooleanAttributes: true,
-            // removeAttributeQuotes: true,
             keepClosingSlash: true, // xml
             removeComments: true,
             removeEmptyAttributes: true,
@@ -171,7 +131,7 @@ gulp.task('extras', [], () => {
 /**
  * Build
  */
-gulp.task('build', ['lint'], next => runSequence(['compile', 'extras'], next))
+gulp.task('build', next => runSequence(['compile', 'extras'], next))
 
 /**
  * Watch source change
@@ -182,37 +142,6 @@ gulp.task('watch', ['build'], () => {
     gulp.watch('src/**/*.less', ['compile:less'])
     gulp.watch('src/**/*.json', ['compile:json'])
     gulp.watch('src/**/*.{jpe?g,png,gif}', ['compile:img'])
-})
-
-/**
- * Generate new page
- */
-gulp.task('generate', next => {
-    inquirer.prompt([{
-            type: 'input',
-            name: 'pageName',
-            message: 'Input the page name',
-            default: 'index'
-        }, {
-            type: 'confirm',
-            name: 'needConfig',
-            message: 'Do you need a configuration file',
-            default: false
-        }, {
-            type: 'list',
-            name: 'styleType',
-            message: 'Select a style framework',
-            // choices: ['less', 'scss', 'css'],
-            choices: ['less'],
-            default: 'less'
-        }])
-        .then(options => {
-            const res = generateFile(options)
-            if (res) generateJson(options)
-        })
-        .catch(err => {
-            throw new plugins.util.PluginError('generate', err)
-        })
 })
 
 /**

@@ -2,7 +2,8 @@
 dist
 
 # Dependency directories
-node_modules
+/node_modules/
+/thirdPlugins/
 
 # Optional npm cache directory
 .npm
