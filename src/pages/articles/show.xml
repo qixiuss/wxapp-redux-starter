@@ -1,0 +1,13 @@
+<!--index.wxml-->
+<import src="../../components/grid-article/index"></import>
+<import src="../../components/article-detail-content/index"></import>
+<import src="../../components/toolbar/index"></import>
+<import src="../../components/toaster/index"></import>
+
+<view class="container">
+	<template is="toaster" data="{{...toasterData}}"></template>
+	
+	<template is="article-detail-content" data="{{...article, wxParseData}}"></template>
+	
+	<template is="toolbar" data="{{...toolbarData}}"></template>
+</view>

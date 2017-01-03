@@ -1,0 +1,27 @@
+<template name="grid-paper">
+    <view class="com-grid-paper">
+    	<view class="grid-paper-hd">
+            <image class="lazyloaded" src="../../images/icon_vote.png"></image>
+            <view  class="count">
+                <image mode="aspectFill" src="../../images/black.png"></image>
+                <view class="words">
+                    <view wx:if="{{today}}">
+                        <text class="num DIN">NEW</text>
+                        <text class="text">我来参加</text>
+                    </view>
+                    <view wx:else>
+                        <text class="num DIN">{{record_count}}</text>
+                        <text class="text">人已参加</text>    
+                    </view> 
+                </view>
+            </view>
+        	<image mode="aspectFill" src="{{image}}"></image>
+        </view>
+        <view class="grid-paper-bd">
+        	<view class="title-description">
+        		<text class="title">{{title}}</text>
+        		<text class="description">{{description}}</text>
+        	</view>
+        </view>
+    </view>
+</template>

@@ -1,0 +1,12 @@
+<template name="loader">
+    <view class="com-loader loading">
+        <view class="loader-bd">
+            <view class="notext">没有更多啦</view>
+            <view class="spinner">
+                <text class="bounce bounce1"></text>
+                <text class="bounce bounce2"></text>
+                <text class="bounce bounce3"></text>
+            </view>
+        </view>
+    </view>
+</template>

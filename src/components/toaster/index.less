@@ -1,0 +1,23 @@
+.com-toaster {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    min-width: 300rpx;
+    line-height: 40rpx;
+    padding: 20rpx 48rpx;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+    color: #fff;
+    font-size: 32rpx;
+    box-sizing: border-box;
+    border-radius: 8rpx;
+    display: none;
+    &.show {
+        display: block;
+    }
+    &.hide {
+        display: none;
+    }
+}

@@ -1,0 +1,14 @@
+<template name="toolbar">
+	<view class="com-toolbar">
+		<view class="arrow-left" catchtap="returnBack">
+			<image src="../../images/arrowleft.png"></image>
+		</view>
+		<view wx:if="{{showPraiseIcon}}" class="love" catchtap="addPraise" >
+			<image wx:if="{{isPraised}}" src="../../images/love.png"></image>
+			<image wx:else src="../../images/love_no.png"></image>
+			<text class="num">{{praiseCount}}</text>
+		</view>
+	</view>	
+</template>
+
+

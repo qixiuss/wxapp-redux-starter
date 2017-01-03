@@ -1,0 +1,5 @@
+// Window configuration
+// https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html#window
+{
+    "navigationBarTitleText": "好奇心日报"
+}

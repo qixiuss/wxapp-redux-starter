@@ -1,0 +1,352 @@
+@import url(../../components/article-detail-header/index);
+.page-content {
+    width: 100%;
+    background: #ffffff;
+    .article-bd {
+        padding: 0 40rpx;
+        .excerpt {
+            position: relative;
+            padding: 54rpx 44rpx;
+            color: rgba(51, 51, 51, 0.4);
+            text-align: center;
+            font-weight: 400;
+            font-size: 36rpx;
+            line-height: 54rpx;
+            .line {
+                position: absolute;
+                left: 50%;
+                bottom: 0;
+                margin-left: -100rpx;
+                width: 200rpx;
+                height: 4rpx;
+                background-color: #e5e5e5;
+            }
+        }
+        .detail {
+            margin-top: 52rpx;
+            text-align: justify;
+            word-wrap: break-word;
+            word-break: break-word;
+            letter-spacing: normal;
+            font-size: 36rpx;
+            line-height: 54rpx;
+            text {
+                font-size: 36rpx;
+                line-height: 54rpx;
+                color: #333;
+                font-family: Arial, STHeiti, 华文黑体, Microsoft YaHei, 微软雅黑, SimSun, 宋体, Helvetica, Tahoma;
+            }
+            .wxParse-p {
+                margin-bottom: 40rpx;
+            }
+            .wxParse-b {
+                font-weight: 800;
+            }
+            .wxParse-title {
+                margin: 60rpx 0;
+                padding-left: 16rpx;
+                border-left: 6rpx solid #ffc81f;
+                font-weight: 700;
+                font-size: 36rpx;
+                line-height: 54rpx;
+            }
+            .old-img {
+                margin: 0 -40rpx;
+            }
+            .old-img ~ .wxParse-span.wxParse-inline {
+                text {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    text-align: left;
+                    color: #b3b3b3;
+                    font-size: 28rpx;
+                    line-height: 40rpx;
+                }
+            }
+            .old-img ~ text {
+                display: block;
+                width: 100%;
+                height: 100%;
+                text-align: left;
+                color: #b3b3b3;
+                font-size: 28rpx;
+                line-height: 40rpx;
+            }
+            .wxParse-strong.wxParse-inline {
+                font-weight: bold;
+            }
+            .com-insert-images,
+            .com-insert-quote,
+            .com-insert-wikipedia,
+            .com-insert-card,
+            .com-insert-timeline,
+            .com-insert-number {
+                .wxParse-p {
+                    margin: 0 !important;
+                }
+            }
+            .com-insert-images {
+                overflow: hidden;
+                margin: 0 -39rpx 48rpx;
+                image {
+                    display: block;
+                    width: 100%;
+                    margin-bottom: 16rpx;
+                    margin-left: 0;
+                }
+                .wxParse-figcaption {
+                    padding: 0 40rpx;
+                    text {
+                        height: 100%;
+                        text-align: left;
+                        color: #b3b3b3 !important;
+                        font-size: 28rpx;
+                        line-height: 40rpx;
+                        display: inline-block;
+                    }
+                }
+            }
+            .com-insert-images.multiple,
+            .com-insert-images.medium-insert-images-wide {
+                .wxParse-figure {
+                    margin-bottom: 48rpx!important;
+                }
+            }
+            .com-insert-quote {
+                position: relative;
+                margin: 0 0 60rpx 14rpx;
+                padding-left: 24rpx;
+                border-left: 4rpx solid #e9e9e9;
+                line-height: 36rpx;
+                .quote-hd {
+                    font-weight: 700;
+                    font-size: 36rpx;
+                    line-height: 54rpx;
+                }
+                .quote-bd {
+                    margin-top: 12rpx;
+                    color: #999;
+                    font-size: 24rpx;
+                    line-height: 28rpx;
+                    .wxParse-p {
+                        text {
+                            margin-top: 12rpx;
+                            color: #999;
+                            font-size: 24rpx;
+                            line-height: 28rpx;
+                        }
+                    }
+                }
+            }
+            .com-insert-wikipedia {
+                position: relative;
+                margin: 0 -14rpx 60rpx;
+                padding: 12rpx 40rpx;
+                line-height: 36rpx;
+                border: 4rpx solid #f2f2f2;
+                .wikipedia-hd {
+                    position: relative;
+                    padding: 20rpx 0;
+                    color: #b3b3b3;
+                    font-size: 36rpx;
+                    line-height: 48rpx;
+                    border-bottom: 2rpx solid #d0d0d0;
+                    .wxParse-p {
+                        text {
+                            color: #b3b3b3;
+                            font-size: 36rpx;
+                            line-height: 48rpx;
+                        }
+                    }
+                }
+                .wikipedia-bd {
+                    padding: 24rpx 0 20rpx;
+                    font-size: 28rpx;
+                    line-height: 46rpx;
+                    .wxParse-p {
+                        text {
+                            font-size: 28rpx;
+                        }
+                    }
+                }
+            }
+            .com-insert-card {
+                position: relative;
+                margin: 0 -14rpx 60rpx;
+                border: 4rpx solid #f2f2f2;
+                padding: 12rpx 40rpx;
+                line-height: 36rpx;
+                .card-hd {
+                    position: relative;
+                    padding: 20rpx 0;
+                    font-size: 28rpx;
+                    line-height: 48rpx;
+                    border-bottom: 2rpx solid #d0d0d0;
+                    .wxParse-p {
+                        text {
+                            font-size: 28rpx;
+                            line-height: 48rpx;
+                        }
+                    }
+                }
+                .card-bd {
+                    padding: 24rpx 0 20rpx;
+                    font-size: 28rpx;
+                    line-height: 46rpx;
+                    .wxParse-p {
+                        text {
+                            font-size: 28rpx;
+                            line-height: 46rpx;
+                        }
+                    }
+                }
+            }
+            .com-insert-timeline {
+                position: relative;
+                margin: 0 -14rpx 60rpx;
+                border: 4rpx solid #f2f2f2;
+                padding: 12rpx 40rpx;
+                line-height: 36rpx;
+                .timeline-hd {
+                    position: relative;
+                    padding: 20rpx 0;
+                    font-size: 28rpx;
+                    line-height: 48rpx;
+                    border-bottom: 2rpx solid #d0d0d0;
+                    .wxParse-p {
+                        font-size: 28rpx;
+                        line-height: 48rpx;
+                    }
+                }
+                .timeline-bd {
+                    position: relative;
+                    padding: 24rpx 0 20rpx;
+                    font-size: 28rpx;
+                    line-height: 46rpx;
+                    .line {
+                        position: relative;
+                        overflow: hidden;
+                        padding-bottom: 40rpx;
+                        font-size: 0;
+                        .time {
+                            float: left;
+                            padding-left: 30rpx;
+                            width: 184rpx;
+                            color: #b3b3b3;
+                            outline: none;
+                            vertical-align: top;
+                            font-size: 28rpx;
+                            line-height: 46rpx;
+                            box-sizing: border-box;
+
+                            text {
+                                font-size: 28rpx;
+                                line-height: 46rpx;
+                            }
+                        }
+                        .description {
+                            float: left;
+                            width: 420rpx;
+                            outline: none;
+                            vertical-align: top;
+                            font-size: 28rpx;
+                            line-height: 46rpx;
+                            // margin-left: 200rpx;
+                            text-align: left;
+                            .wxParse-p {
+                                text {
+                                    font-size: 28rpx;
+                                    line-height: 46rpx;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .com-insert-number {
+                border: 4rpx solid #f2f2f2;
+                margin: 0 -14rpx 60rpx;
+                padding: 12rpx 40rpx;
+                line-height: 36rpx;
+                .number-hd {
+                    position: relative;
+                    overflow: hidden;
+                    padding: 20rpx 0;
+                    text-align: center;
+                    font-size: 28rpx;
+                    line-height: 48rpx;
+                    border-bottom: 2rpx solid #d0d0d0;
+                    .numtitle {
+                        position: relative;
+                        display: inline-block;
+                        margin: 0 auto;
+                        min-width: 120rpx;
+                        .center {
+                            display: inline-block;
+                            min-width: 120rpx;
+                            height: 220rpx;
+                            text-align: center;
+                            font-size: 160rpx;
+                            line-height: 220rpx;
+                            .wxParse-p {
+                                text {
+                                    font-size: 160rpx;
+                                    line-height: 220rpx;
+                                }
+                            }
+                        }
+                        .right {
+                            position: absolute;
+                            right: -240rpx;
+                            bottom: 42rpx;
+                            overflow: hidden;
+                            width: 240rpx;
+                            text-align: left;
+                            font-size: 32rpx;
+                            .wxParse-p {
+                                text {
+                                    font-size: 32rpx;
+                                }
+                            }
+                        }
+                    }
+                }
+                .number-bd {
+                    padding: 36rpx 0 24rpx;
+                    line-height: 46rpx;
+                    color: #c4c4c4;
+                    font-size: 28rpx;
+                    .wxParse-p {
+                        text {
+                            font-size: 28rpx;
+                            color: #c4c4c4;
+                            line-height: 46rpx;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .article-ft {
+        padding: 4rpx 40rpx 44rpx;
+        margin-bottom: 10rpx;
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            .tag {
+                margin-right: 20rpx;
+                font-size: 24rpx;
+                line-height: 24rpx;
+                background: #f2f2f2;
+                border-radius: 20rpx;
+                padding: 8rpx 20rpx;
+                margin-top: 20rpx;
+                color: #333;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}

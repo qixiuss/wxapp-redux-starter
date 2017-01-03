@@ -1,0 +1,15 @@
+<import src="../../components/grid-paper/index"></import>
+<import src="../../components/loader/index"></import>
+<import src="../../components/toaster/index"></import>
+
+<view class="page-container">
+	<template is="toaster" data="{{...toasterData}}"></template>
+
+    <scroll-view scroll-y="true" bindscrolltolower="handleScroll" class="posts-wrapper">
+        <block wx:for="{{posts}}" wx:for-item="id" wx:key="*this">
+            <template wx:if="{{postsHash[id].datatype == 'paper' &&  postsHash[id].genre == 1000}}" is="grid-paper" data="{{...postsHash[id]}}"></template>
+        </block>
+
+        <template is="loader" data=""></template>
+    </scroll-view>
+</view>

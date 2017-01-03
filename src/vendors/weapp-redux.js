@@ -217,7 +217,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 
 	      var state = this.store.getState();
-	      var mappedState = mapState(state, options);
+	      var mappedState = mapState(state, options, this.data);
 	      if (!this.data || (0, _shallowEqual2.default)(this.data, mappedState)) {
 	        return;
 	      }
@@ -235,7 +235,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      }
 	      if (shouldSubscribe) {
 	        this.unsubscribe = this.store.subscribe(handleChange.bind(this, options));
-	        handleChange.apply(this);
+	        handleChange.apply(this, [options]);
 	      }
 	      if (typeof _onLoad === 'function') {
 	        _onLoad.call(this, options);

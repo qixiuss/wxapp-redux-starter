@@ -1,0 +1,47 @@
+<!--短文章-->
+<template name="article-short-header">
+    <view class="com-article-short-header" data-index="{{id}}">
+        <view class="banner">
+            <image mode="aspectFill" src="{{inner_image}}"></image>
+        </view>
+        <view class="category">
+            <view class="pic">
+                <image mode="scaleToFill" src="{{category.image_black}}"></image>
+            </view>
+            <text>{{category.title}}</text>
+        </view>
+        <text class="title">{{title}}</text>
+        <view class="author-date">
+            <view class="author">
+                <image mode="scaleToFill" src="{{avatar}}"></image>
+                <text class="name">{{name}}</text>
+            </view>
+            <view class="date">{{publish_time_formated}}</view>
+        </view>
+    </view>
+</template>
+<!--长文章-->
+<template name="article-long-header">
+    <view class="com-article-long-header">
+        <view class="banner">
+            <image mode="scaleToFill" src="{{inner_image}}"></image>
+        </view>
+        <view class="vertical-wrapper"></view>
+        <view class="category-author">
+            <view class="category">
+                <view class="pic">
+                    <image mode="scaleToFill" src="{{category.image_white}}"></image>
+                </view>
+                <text>{{category.title}}</text>
+            </view>
+            <text class="title">{{title}}</text>
+            <view class="author-date">
+                <view class="author">
+                    <image src="{{avatar}}"></image>
+                    <text class="name">{{name}}</text>
+                </view>
+                <view class="date">{{publish_time_formated}}</view>
+            </view>
+        </view>
+    </view>
+</template>

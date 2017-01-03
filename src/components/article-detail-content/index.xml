@@ -1,0 +1,22 @@
+<import src="../../components/wxParse/wxParse"></import>
+<import src="../../components/article-detail-header/index"></import>
+
+<template name="article-detail-content">
+	<view class="page-content">
+		<view class="article-hd">
+		    <template wx:if = "{{page_style == 1}}" is="article-long-header" data="{{id, inner_image, title, name, avatar, publish_time_formated, category, ...author}}"></template>
+		    <template wx:if = "{{page_style == 0}}" is="article-short-header" data="{{id, inner_image, title, name, avatar, publish_time_formated, category, ...author}}"></template>
+	    </view>
+	    <view class="article-bd">
+			<view class="excerpt">{{excerpt}}<text class="line"></text></view>
+		    <view class="detail"><template is="wxParse" data="{{wxParseData}}"></template></view>
+		</view>
+		<view class="article-ft">
+			<view class="tags">
+				<block wx:for ="{{tag}}" wx:key="id" wx:for-item="item">
+					<view class="tag">{{item.name}}</view>
+				</block>
+			</view>
+		</view>
+	</view>
+</template>

@@ -1,0 +1,14 @@
+<template name="grid-article">
+    <view class="com-grid-article" bindtap="navigateTo" data-url="/pages/articles/show?id={{id}}" data-id="{{id}}">
+        <view class="grid-article-lt">
+            <text class="grid-article-title">{{title}}</text>
+            <view class="grid-article-infor">
+                <text class="grid-article-type">{{category}}</text>
+                <text class="smart-date">{{publish_time_formated}}</text>
+            </view>
+        </view>
+        <view class="grid-article-rt">
+            <image mode="aspectFill" src="{{image}}"></image>
+        </view>
+    </view>
+</template>

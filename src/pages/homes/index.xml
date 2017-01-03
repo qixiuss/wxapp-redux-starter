@@ -1,0 +1,22 @@
+<import src="../../components/grid-articles-banner/index"></import>
+<import src="../../components/grid-article/index"></import>
+<import src="../../components/grid-key-article/index"></import>
+<import src="../../components/grid-paper/index"></import>
+<import src="../../components/loader/index"></import>
+<import src="../../components/toaster/index"></import>
+
+<view class="page-container">
+    <scroll-view scroll-y="true" bindscrolltolower="handleScroll" class="posts-wrapper">
+        <template is="grid-articles-banner" data="{{banners}}"></template>
+
+        <block wx:for="{{posts}}" wx:for-item="post" wx:key="id">
+            <template wx:if="{{post.datatype == 'article' &&  post.type == 1}}" is="grid-article" data="{{...post}}"></template>
+            <template wx:if="{{post.datatype == 'article' &&  post.type == 2}}" is="grid-key-article" data="{{...post}}"></template>
+            <template wx:if="{{post.datatype == 'paper' &&  post.genre == 1000}}" is="grid-paper" data="{{...post}}"></template>
+        </block>
+
+        <template is="loader"></template>
+    </scroll-view>
+
+    <template is="toaster" data="{{...toasterData}}"></template>
+</view>

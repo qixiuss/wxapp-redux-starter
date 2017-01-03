@@ -1,4 +1,4 @@
-import Promise from '../vendor/es6-promise.js';
+import Promise from '../vendors/es6-promise.js';
 
 module.exports = (api) => {
     return (options, ...params) => {

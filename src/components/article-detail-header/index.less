@@ -1,0 +1,149 @@
+
+.com-article-short-header,
+.com-article-long-header{
+	.vertical-wrapper{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: rgba(0,0,0,0.3);
+	}
+	.category{
+		height: 46rpx;
+		overflow: hidden;
+		margin-bottom: 24rpx;
+		.pic{
+			float: left;
+			width: 42rpx;
+			height: 42rpx;
+			border-radius: 50%;
+			// background-color: #111111;
+			margin-right: 16rpx;
+
+			image{
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+			}
+		}
+		text{
+			float: left;
+			width: 100rpx;
+			height: 42rpx;
+			text-align: left;
+			color: #333;
+			line-height: 42rpx;
+			font-size: 28rpx;
+			display: inline-block;
+		}
+	}
+	.author-date{
+		overflow: hidden;
+		.author{
+			float: left;
+			image{
+				width: 40rpx;
+				height: 40rpx;
+				line-height: 40rpx;
+				float: left;
+				border-radius: 50%;
+				margin-right: 10rpx;
+			}
+
+			.name{
+				float: left;
+				font-size: 28rpx;
+				line-height: 40rpx;
+			}
+		}
+		.date{
+			float: right;
+			color: #bfbfbf;
+			font-size: 28rpx;
+			line-height: 40rpx;
+		}
+	}
+}
+
+.com-article-short-header{
+	box-sizing: border-box;
+	width: 100%;
+	// padding: 0 40rpx;
+
+	.banner{
+		// padding: 0 40rpx;
+		margin-bottom: 40rpx;
+		height: 400rpx;
+		width: auto;
+		
+		image{
+			width: 100%;
+			height: 400rpx;
+		}
+	}
+	.category{
+		padding: 0 40rpx;
+	}
+	.title{
+		padding: 0 40rpx;
+		word-wrap: break-word;
+		font-weight: 400;
+		font-size: 48rpx;
+		line-height: 64rpx;
+		display: block;
+	}
+	.author-date{
+		padding: 32rpx 40rpx 0;
+		line-height: 40rpx;
+	}
+}
+
+.com-article-long-header{
+	position: relative;
+	width: 100%;
+	height: 1334rpx;
+
+	.banner{
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
+
+		image{
+			height: 100%;
+			width: 100%;
+		}
+	}
+	.category-author{
+		position: absolute;
+		left: 0;
+		bottom: 270rpx;
+		z-index: 2;
+		padding: 0 40rpx;
+		width: 100%;
+		color: #fff;
+		box-sizing: border-box;
+
+		.category{
+			margin-bottom: 0rpx;
+			.pic{
+				// background-color: #ffffff;
+			}
+			text{
+				color:#fff;
+			}
+		}
+		.title{
+			padding: 40rpx 0;
+			color:#fff;
+			font-weight:400;
+			font-size: 48rpx;
+			line-height: 64rpx;
+			display: block;
+		}
+		.author-date{
+			line-height: 50rpx;
+		}
+	}
+}

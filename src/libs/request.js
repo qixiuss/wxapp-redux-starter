@@ -1,4 +1,4 @@
-import Promise from '../vendor/es6-promise.js';
+import Promise from '../vendors/es6-promise.js';
 
 function request(method = 'GET') {
     return function(url, data = {}) {
@@ -11,17 +11,25 @@ function request(method = 'GET') {
                     'Content-Type': 'application/json'
                 },
                 success: function(res) {
-                    resolve(res.data)
+                    let statusCode = res.statusCode,
+                        errMsg = res.errMsg,
+                        data = res.data;
+
+                    if (statusCode == 200 && data.meta && data.meta.status == 200) {
+                        resolve(data.response);
+                    } else {
+                        reject('网路请求错误，请稍后再试~');
+                    }
                 },
                 fail: function(err) {
-                    reject(err)
+                    reject('网路请求不符合规范，请检查域名是否符合要求~');
                 }
             });
         })
     }
 }
 
-export const get = request('GET');
-export const post = request('POST');
-export const put = request('PUT');
-export const del = request('DELETE');
+export const GET = request('GET');
+export const POST = request('POST');
+export const PUT = request('PUT');
+export const DELETE = request('DELETE');

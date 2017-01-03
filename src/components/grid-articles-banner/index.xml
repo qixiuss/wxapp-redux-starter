@@ -1,0 +1,13 @@
+<template name="grid-articles-banner">
+	<view hidden="{{banners.length == 0}}" class="com-grid-articles-banner">
+		<swiper class="swiper-wrapper" indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
+			<block wx:for="{{banners}}" wx:for-item="banner" wx:key="id">
+				<swiper-item bindtap="navigateTo" data-url="/pages/articles/show?id={{banner.id}}" data-id="{{banner.id}}">
+					<image mode="aspectFill" src="{{banner.image}}" />
+					<view class="vertical-wrapper"></view>
+					<text class="category-title">{{banner.title}}</text>
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+</template>

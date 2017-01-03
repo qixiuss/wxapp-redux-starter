@@ -1,0 +1,82 @@
+@keyframes sk-bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1.0);
+    }
+}
+
+.com-loader {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    margin-bottom: 40rpx;
+    .loader-bd {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 28rpx;
+        color: #bbbbbb;
+        line-height: 80rpx;
+        .notext {
+            display: none;
+            position: relative;
+            padding: 0 36rpx;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                width: 80rpx;
+                height: 2rpx;
+                background-color: #dddddd;
+            }
+            &:before {
+                right: -80rpx;
+                top: 40rpx;
+            }
+            &:after {
+                left: -80rpx;
+                top: 40rpx;
+            }
+        }
+        .spinner {
+            .bounce {
+                width: 24rpx;
+                height: 24rpx;
+                margin: 0 8rpx;
+                background-color: #ffc81f;
+                border-radius: 100%;
+                display: inline-block;
+                animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+            }
+            .bounce1 {
+                animation-delay: -0.32s;
+            }
+            .bounce2 {
+                animation-delay: -0.16s;
+            }
+        }
+    }
+    &.loading {
+        .loader-bd {
+            .notext {
+                display: none;
+            }
+            .spinner {
+                display: inline-block;
+            }
+        }
+    }
+    &.nomore {
+        .loader-bd {
+            .notext {
+                display: inline-block;
+            }
+            .spinner {
+                display: none;
+            }
+        }
+    }
+}

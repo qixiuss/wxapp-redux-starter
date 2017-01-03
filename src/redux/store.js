@@ -1,24 +1,20 @@
 import {
     createStore,
-    compose,
     applyMiddleware,
     combineReducers
-} from '../vendors/redux.js';
-import thunkMiddleware from '../vendors/redux-thunk.js';
+} from '../vendors/redux.min.js';
+import thunk from '../vendors/redux-thunk.js';
 
 // import reducers
-import { todos } from './reducers/todos.js';
-import { visibilityFilter } from './reducers/visibilityFilter.js';
+import { rootReducer } from './reducer.js';
 
+let entities = wx.getStorageSync('entities') || {};
 
-export const store = function() {
-    return createStore(
-        combineReducers({
-            todos,
-            visibilityFilter
-        }),
-        applyMiddleware(
-            thunkMiddleware
-        )
-    );
-}
+export const store = createStore(
+    rootReducer, {
+        entities: entities
+    },
+    applyMiddleware(
+        thunk
+    )
+);

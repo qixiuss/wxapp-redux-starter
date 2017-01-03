@@ -1,0 +1,17 @@
+<template name="grid-key-article">
+    <view class="com-grid-key-article" bindtap="navigateTo" data-url="/pages/articles/show?id={{id}}" data-id="{{id}}">
+        <view class="grid-key-article-hd">
+            <image mode="aspectFill" src="{{image}}"></image>
+        </view>
+        <view class="grid-key-article-bd">
+            <view class="title-description">
+                <text class="title">{{title}}</text>
+                <text class="description">{{description}}</text>
+            </view>
+            <view class="information">
+                <text class="type">{{category}}</text>
+                <text class="smart-data">{{publish_time_formated}}</text>
+            </view>
+        </view>
+    </view>
+</template>
