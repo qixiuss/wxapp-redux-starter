@@ -68,10 +68,10 @@ gulp.task('compile:xml', () => {
 gulp.task('compile:less', () => {
     return gulp.src(['src/**/*.less'])
         .pipe(plumber(handleErrors))
+        .pipe(plugins.less())
         .pipe(plugins.rename({ extname: '.wxss' }))
         .pipe(plugins.newer('dist'))
         .pipe(plugins.logger({ showChange: true }))
-        .pipe(plugins.less())
         .pipe(plugins.if(isProduction, plugins.cssnano({ compatibility: '*' })))
         .pipe(gulp.dest('dist'))
 })
