@@ -1,49 +1,53 @@
 {
-  "name": "weapp-boilerplate",
-  "version": "0.1.0",
-  "description": "A boilerplate application for wechat weapp runtime",
+  "name": "wxapp-redux-starter",
+  "version": "0.8.0",
+  "description": "A starter boilerplate for wxapp",
   "scripts": {
     "dev": "gulp watch",
     "build": "cross-env NODE_ENV=production gulp build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zce/weapp-boilerplate.git"
+    "url": "git+https://github.com/qixiuss/wxapp-redux-starter.git"
   },
   "keywords": [
-    "weapp",
-    "weapp",
-    "boilerplate",
+    "wxapp",
+    "redux",
+    "starter",
     "wechat",
     "weixin",
     "xiaochengxu",
-    "zce",
-    "iceStone",
-    "wedn",
-    "wedn.net",
-    "micua",
-    "micua.com"
+    "qixiuss"
   ],
-  "author": "iceStone <ice@micua.com> (https://www.micua.com/)",
+  "author": "qixiuss",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zce/weapp-boilerplate/issues"
+    "url": "https://github.com/qixiuss/wxapp-redux-starter/issues"
   },
-  "homepage": "https://github.com/zce/weapp-boilerplate#readme",
+  "homepage": "https://github.com/qixiuss/wxapp-redux-starter#readme",
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "cross-env": "^3.1.3",
     "del": "^2.2.2",
+    "eslint": "^3.8.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-friendly-formatter": "^2.0.6",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-promise": "^3.3.0",
+    "eslint-plugin-standard": "^2.0.1",
     "generate-weapp-page": "^0.1.3",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^3.0.1",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.1",
     "gulp-imagemin": "^3.0.3",
     "gulp-jsonminify": "^1.0.0",
     "gulp-less": "^3.1.0",
     "gulp-load-plugins": "^1.3.0",
+    "gulp-logger": "^0.0.2",
+    "gulp-newer": "^1.3.0",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",

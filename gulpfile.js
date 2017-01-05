@@ -7,8 +7,6 @@ const plumber = require('gulp-plumber');
 const notify = require("gulp-notify")
 const del = require('del')
 const runSequence = require('run-sequence')
-const inquirer = require('inquirer')
-const generatePage = require('generate-weapp-page')
 
 // load all gulp plugins
 const plugins = gulpLoadPlugins()
@@ -35,12 +33,12 @@ gulp.task('clean', del.bind(null, ['dist/*']))
 gulp.task('compile:js', () => {
     return gulp.src(['src/**/*.js'])
         .pipe(plumber(handleErrors))
-        // .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.newer('dist'))
+        .pipe(plugins.logger({ showChange: true }))
         .pipe(plugins.babel({
             presets: ['es2015']
         }))
         .pipe(plugins.if(isProduction, plugins.uglify()))
-        // .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
 })
 
@@ -50,7 +48,9 @@ gulp.task('compile:js', () => {
 gulp.task('compile:xml', () => {
     return gulp.src(['src/**/*.xml'])
         .pipe(plumber(handleErrors))
-        // .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.rename({ extname: '.wxml' }))
+        .pipe(plugins.newer('dist'))
+        .pipe(plugins.logger({ showChange: true }))
         .pipe(plugins.if(isProduction, plugins.htmlmin({
             collapseWhitespace: true,
             keepClosingSlash: true, // xml
@@ -59,8 +59,6 @@ gulp.task('compile:xml', () => {
             removeScriptTypeAttributes: true,
             removeStyleLinkTypeAttributes: true
         })))
-        .pipe(plugins.rename({ extname: '.wxml' }))
-        // .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
 })
 
@@ -70,11 +68,11 @@ gulp.task('compile:xml', () => {
 gulp.task('compile:less', () => {
     return gulp.src(['src/**/*.less'])
         .pipe(plumber(handleErrors))
-        // .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.rename({ extname: '.wxss' }))
+        .pipe(plugins.newer('dist'))
+        .pipe(plugins.logger({ showChange: true }))
         .pipe(plugins.less())
         .pipe(plugins.if(isProduction, plugins.cssnano({ compatibility: '*' })))
-        .pipe(plugins.rename({ extname: '.wxss' }))
-        // .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
 })
 
@@ -84,9 +82,9 @@ gulp.task('compile:less', () => {
 gulp.task('compile:json', () => {
     return gulp.src(['src/**/*.json'])
         .pipe(plumber(handleErrors))
-        // .pipe(plugins.sourcemaps.init())
+        .pipe(plugins.newer('dist'))
+        .pipe(plugins.logger({ showChange: true }))
         .pipe(plugins.jsonminify())
-        // .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest('dist'))
 })
 
@@ -96,6 +94,8 @@ gulp.task('compile:json', () => {
 gulp.task('compile:img', () => {
     return gulp.src(['src/**/*.{jpg,jpeg,png,gif}'])
         .pipe(plumber(handleErrors))
+        .pipe(plugins.newer('dist'))
+        .pipe(plugins.logger({ showChange: true }))
         .pipe(plugins.imagemin())
         .pipe(gulp.dest('dist'))
 })
